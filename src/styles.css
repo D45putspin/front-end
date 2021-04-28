@@ -1,1 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0;  }
+.colorized-wrapper{
+    height: 100vh;
+    width:100vw;
+   background: linear-gradient(160.16deg, #222AF0 -64.37%, #7022F0 64.23%, #F022DB 138.12%);
+   display: flex;
+}/* You can add global styles to this file, and also import other style files */
+.logo{font-family: "Kaushan Script";
+font-style: normal;
+font-weight: normal;
+color: #FFFFFF;}
+.form{
+    color:white
+}
+.Text{font-family: "Work Sans";color:#FFFFFF}

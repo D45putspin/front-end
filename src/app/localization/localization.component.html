@@ -1,0 +1,10 @@
+<div class="colorized-wrapper ">
+
+    <div class="wrapper-flex-justify">
+
+        <button mat-stroked-button (click)="handlePermission()">give access
+            Location</button>
+        <p *ngIf="allowance=='denied' || allowance=='prompt'">{{textActivation}}</p>
+
+    </div>
+</div>
