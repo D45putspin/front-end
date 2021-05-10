@@ -1,1 +1,25 @@
-<p>foods works!</p>
+<div class="colorized-wrapper ">
+    <div class="wrapper-flex-justify">
+        <h1>heres what we suggest</h1>
+
+        <div class="card" *ngFor="let menu of existentMenus">
+
+            <mat-card class="card" (click)="seeFullMenu(menu._id)">
+                <img style="width:200px"
+                    src="https://2rdnmg1qbg403gumla1v9i2h-wpengine.netdna-ssl.com/wp-content/uploads/sites/3/2016/10/foodJointPainRelief-142336977-770x533-1-650x428.jpg">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{menu.menuDescription}}</mat-card-title>
+                    <mat-card-subtitle>{{menu.foodType}}</mat-card-subtitle>
+                </mat-card-header>
+
+
+                <mat-card-actions>
+                    <button mat-button>Antes:{{menu.price}}€</button>
+                    <button mat-button>Agora:{{menu.salePrice}}€</button>
+                </mat-card-actions>
+            </mat-card>
+            <br>
+        </div>
+    </div>
+</div>

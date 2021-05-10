@@ -13,14 +13,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MatListModule } from '@angular/material/list';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './main/main.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 import { LocalizationComponent } from './localization/localization.component';
 import { FoodsComponent } from './foods/foods.component';
+import { MatCardModule } from '@angular/material/card';
+import { MenuDetailsComponent } from './menu-details/menu-details.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,10 +32,11 @@ import { FoodsComponent } from './foods/foods.component';
     MainComponent,
     LocalizationComponent,
     FoodsComponent,
+    MenuDetailsComponent,
 
   ],
   imports: [
-
+    MatSelectModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -43,8 +48,9 @@ import { FoodsComponent } from './foods/foods.component';
     GraphQLModule,
     HttpClientModule,
     MatButtonModule,
-    MatMenuModule
-
+    MatMenuModule,
+    MatCardModule,
+    MatListModule
 
   ],
   providers: [],

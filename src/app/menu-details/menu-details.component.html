@@ -1,0 +1,28 @@
+<div class="body-white">
+
+    <h1>{{foodType}}</h1>
+    <h2>{{foodDesc}}</h2>
+    <mat-selection-list [formControl]="NForm" multiple>
+        <mat-list-option *ngFor="let descN of NList" [value]="descN">
+            {{descN.description}}
+        </mat-list-option>
+    </mat-selection-list>
+
+
+    <mat-selection-list [formControl]="DForm" multiple>
+
+        <mat-list-option *ngFor="let descD of DList" [value]="descD">
+            {{descD.description}}
+        </mat-list-option>
+    </mat-selection-list>
+
+
+    <h1>Pagamento em:</h1>
+    <mat-selection-list [formControl]="PaymentForm" multiple>
+
+        <mat-list-option *ngFor="let payment of paymentTypes" [value]="payment">
+            {{payment.paymentType}}
+        </mat-list-option>
+    </mat-selection-list>
+    <button (click)="submit()"> submit</button>
+</div>

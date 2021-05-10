@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { gql, Apollo, QueryRef } from 'apollo-angular';
 import { Login } from '../../graphql/mutations/login';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';

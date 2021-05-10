@@ -4,6 +4,7 @@ import { HomeComponent } from './views/home/home.component';
 import { MainComponent } from './main/main.component'
 import { FoodsComponent } from './foods/foods.component'
 import { LocalizationComponent } from './localization/localization.component'
+import { MenuDetailsComponent } from './menu-details/menu-details.component'
 const routes: Routes = [
   {
     path: '',
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'food',
     component: FoodsComponent
+  },
+  {
+    path: 'detail',
+    component: MenuDetailsComponent
   }
 ];
 
