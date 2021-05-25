@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatInputCounterModule } from '@angular-material-extensions/input-counter';
 import { FormControl, FormGroup, Validators, FormArray, FormBuilder } from "@angular/forms";
 import { gql, Apollo, QueryRef } from 'apollo-angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { getMenubyID } from '../graphql/mutations/getMenuById';
+import { addItemToCart } from '../graphql/mutations/addToCart';
 import { getStoreById } from '../graphql/mutations/getAssociatedStore'
 import { MatListOption } from '@angular/material/list'
 @Component({
@@ -12,14 +14,18 @@ import { MatListOption } from '@angular/material/list'
 })
 
 export class MenuDetailsComponent implements OnInit {
-  OptionsSelected: any = [];
+  OptionsNSelected: any = [];
+  OptionsDSelected: any = [];
   optionsPaymentSelected: string;
   storeAssociated: string;
+  NumberMenusVar: any;
   foodType: any;
   foodDesc: any;
+  objectToSend: any;
   paymentTypes: any[] = [
 
   ];
+  payment: any;
   NList: any[] = [
 
   ];
@@ -29,28 +35,56 @@ export class MenuDetailsComponent implements OnInit {
   PaymentForm: FormControl;
   NForm: FormControl;
   DForm: FormControl;
+  NumberMenus: FormControl;
 
   constructor(private route: ActivatedRoute, private apollo: Apollo) {
     this.NForm = new FormControl([this.NList[0]], Validators.required);
     this.DForm = new FormControl([this.DList[0]]);
     this.PaymentForm = new FormControl([this.paymentTypes[0]]);
+    this.NumberMenus = new FormControl('')
   }
   submit() {
-    this.OptionsSelected = [];
+    this.OptionsNSelected = [];
+    this.OptionsDSelected = [];
     //this.OptionsSelected.push(this.NForm.value.map((o: any) => { o }))
     for (let i = 0; i < this.NForm.value.length; i++) {
-      this.OptionsSelected.push(this.NForm.value[i]);
+      if (this.NForm.value[i].__typename)
+        delete this.NForm.value[i].__typename;
+      this.OptionsNSelected.push(this.NForm.value[i]);
     }
     for (let i = 0; i < this.DForm.value.length; i++) {
-      this.OptionsSelected.push(this.DForm.value[i]);
+      if (this.DForm.value[i].__typename)
+        delete this.DForm.value[i].__typename;
+      this.OptionsDSelected.push(this.DForm.value[i]);
     }
     for (let i = 0; i < this.PaymentForm.value.length; i++) {
-      this.optionsPaymentSelected = this.PaymentForm.value[i];
+      this.optionsPaymentSelected = this.PaymentForm.value[0].paymentType;
+
     }
-    console.log(this.OptionsSelected);
-    console.log(this.optionsPaymentSelected);
+    this.NumberMenusVar = this.NumberMenus.value;
+
+
+    this.apollo.mutate({ //cria mutate
+      mutation: addItemToCart,//mutation é
+      variables: {
+        idUserAssociated: "6064935d840a4806ed9ccf40",
+        menu: {
+          menuName: this.foodType,
+          numberMenus: this.NumberMenusVar,
+          optionsN: this.OptionsNSelected,
+          optionsDesc: this.OptionsDSelected
+        },
+        paymentType: this.optionsPaymentSelected,
+        numberMenus: this.NumberMenusVar
+      }
+    }).subscribe(({ data }) => {
+      console.log(data);
+    })
+
 
   }
+
+
   ngOnInit(): void {
     let id: any
     this.route.queryParams
@@ -78,7 +112,6 @@ export class MenuDetailsComponent implements OnInit {
 
     })
 
-
   }
   test(id: string) {
     this.apollo.mutate({ //cria mutate
@@ -89,11 +122,23 @@ export class MenuDetailsComponent implements OnInit {
     }).subscribe(({ data }) => {
       let x = data as any
       for (let i = 0; i < x.listStoreById.paymentType.length; i++) {
-        this.paymentTypes.push(x.listStoreById.paymentType[i])
+        this.paymentTypes.push(x.listStoreById.paymentType[i]);
       }
 
     })
   }
+
+  /*  getidUser() {
+      let token = localStorage.getItem("token");
+      this.apollo.mutate({ //cria mutate
+        mutation: getStoreById,//mutation é
+        variables: {
+          token: token
+        }
+      }).subscribe(({ data }) => {
+  
+      }
+    }*/
 }
 
 

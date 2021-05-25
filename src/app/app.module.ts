@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { NgModule } from '@angular/core';
 import { HomeComponent } from './views/home/home.component';
@@ -24,6 +24,7 @@ import { LocalizationComponent } from './localization/localization.component';
 import { FoodsComponent } from './foods/foods.component';
 import { MatCardModule } from '@angular/material/card';
 import { MenuDetailsComponent } from './menu-details/menu-details.component';
+import { MatInputCounterModule } from '@angular-material-extensions/input-counter';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MenuDetailsComponent } from './menu-details/menu-details.component';
 
   ],
   imports: [
+    FlexLayoutModule,
     MatSelectModule,
     BrowserModule,
     AppRoutingModule,
@@ -50,7 +52,10 @@ import { MenuDetailsComponent } from './menu-details/menu-details.component';
     MatButtonModule,
     MatMenuModule,
     MatCardModule,
-    MatListModule
+    MatListModule,
+    MatInputCounterModule
+
+
 
   ],
   providers: [],

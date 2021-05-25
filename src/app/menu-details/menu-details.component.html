@@ -2,13 +2,14 @@
 
     <h1>{{foodType}}</h1>
     <h2>{{foodDesc}}</h2>
+    <mat-card>Extras quantitativos</mat-card>
     <mat-selection-list [formControl]="NForm" multiple>
         <mat-list-option *ngFor="let descN of NList" [value]="descN">
             {{descN.description}}
         </mat-list-option>
     </mat-selection-list>
 
-
+    <mat-card>Extras descritivos</mat-card>
     <mat-selection-list [formControl]="DForm" multiple>
 
         <mat-list-option *ngFor="let descD of DList" [value]="descD">
@@ -23,6 +24,13 @@
         <mat-list-option *ngFor="let payment of paymentTypes" [value]="payment">
             {{payment.paymentType}}
         </mat-list-option>
+
     </mat-selection-list>
-    <button (click)="submit()"> submit</button>
+    <mat-input-counter [min]="1" [max]="10" [step]="1" label='Numero de Menus' placeholder="Numero de pedidos"
+        [formControl]="NumberMenus">
+    </mat-input-counter>
+
+    <button mat-raised-button color="primary" (click)="submit()"> submit</button>
+
+
 </div>
