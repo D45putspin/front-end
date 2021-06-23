@@ -12,6 +12,7 @@ import { HomeComponent } from './views/home/home.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { GraphQLModule } from './graphql.module';
@@ -25,6 +26,11 @@ import { FoodsComponent } from './foods/foods.component';
 import { MatCardModule } from '@angular/material/card';
 import { MenuDetailsComponent } from './menu-details/menu-details.component';
 import { MatInputCounterModule } from '@angular-material-extensions/input-counter';
+import { SucessOrderComponent } from './sucess-order/sucess-order.component';
+import { SeeOrdersComponent } from './see-orders/see-orders.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PersonalMenuComponent } from './personal-menu/personal-menu.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +40,15 @@ import { MatInputCounterModule } from '@angular-material-extensions/input-counte
     LocalizationComponent,
     FoodsComponent,
     MenuDetailsComponent,
+    SucessOrderComponent,
+    SeeOrdersComponent,
+    NotFoundComponent,
+    PersonalMenuComponent,
+    PerfilComponent,
 
   ],
   imports: [
+    MatSnackBarModule,
     FlexLayoutModule,
     MatSelectModule,
     BrowserModule,

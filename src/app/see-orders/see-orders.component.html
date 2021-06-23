@@ -1,0 +1,28 @@
+<div class="colorized-wrapper overflow-auto">
+    <div class="d-flex align-items-start flex-column mt-4 md-5 w-100  " style="margin-left:0px">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+            <mat-icon class="icon ml-cross" (click)="getback()">keyboard_arrow_left</mat-icon>
+        </mat-icon>
+
+        <p class="Text"></p>
+
+        <br>
+
+        <div class="w-75 mt-6 bordered" style="margin-left:15vw" *ngFor="let menu of menus">
+
+            <mat-card class="card  " style="margin-bottom: 4px;">
+                <img style="width:100%"
+                    src="https://2rdnmg1qbg403gumla1v9i2h-wpengine.netdna-ssl.com/wp-content/uploads/sites/3/2016/10/foodJointPainRelief-142336977-770x533-1-650x428.jpg">
+                <mat-card-header>
+
+                    <mat-card-title>{{menu.menus.menuName}}</mat-card-title>
+                    <mat-card-subtitle class="w-75">{{menu.paymentType}} {{menu.totalPrice}}€ | {{menu.orderStatus}}
+                    </mat-card-subtitle>
+                </mat-card-header>
+
+            </mat-card>
+            <br>
+        </div>
+
+    </div>
+</div>

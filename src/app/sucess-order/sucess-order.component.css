@@ -1,0 +1,7 @@
+.colorized-wrapper{color:white}
+.wrapper-flex-justify{justify-content:center; align-items:center; flex-direction:column;width:100vw;display:flex;z-index: 0;}
+.menu{position:absolute;}
+.Text{font-size: 42.2727px;
+line-height: 50px;
+letter-spacing: -0.845455px;font-weight: 300;width: 219px;
+height: 200px;}

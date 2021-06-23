@@ -1,16 +1,19 @@
-<div class="colorized-wrapper ">
-    <div class="wrapper-flex-justify">
-        <h1>heres what we suggest</h1>
+<div class="colorized-wrapper overflow-auto ">
+    <div class="d-flex align-items-start flex-column mt-5 w-100  " style="margin-left:0px">
+        <button mat-icon-button aria-label="Example icon-button with a menu" routerLink="/main">
+            <mat-icon class="icon ml-cross">close icon</mat-icon>
+        </button>
 
-        <div class="card" *ngFor="let menu of existentMenus">
+        <p class="Text w-75 mt-4 ml-txt" style="margin-left:15vw">heres what we suggest</p>
 
-            <mat-card class="card" (click)="seeFullMenu(menu._id)">
-                <img style="width:200px"
-                    src="https://2rdnmg1qbg403gumla1v9i2h-wpengine.netdna-ssl.com/wp-content/uploads/sites/3/2016/10/foodJointPainRelief-142336977-770x533-1-650x428.jpg">
+        <div class="w-75 " style="margin-left:15vw" *ngFor="let menu of existentMenus">
+
+            <mat-card class="card  " style="margin-bottom: 25px;" (click)=" seeFullMenu(menu._id)">
+                <img style="width:100%" [src]="menu.imgSrc">
                 <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{menu.menuDescription}}</mat-card-title>
-                    <mat-card-subtitle>{{menu.foodType}}</mat-card-subtitle>
+                    <div mat-card-avatar class=""></div>
+                    <mat-card-title>{{menu.foodType}}</mat-card-title>
+                    <mat-card-subtitle class=" w-75">{{menu.menuDescription}}</mat-card-subtitle>
                 </mat-card-header>
 
 
@@ -21,5 +24,6 @@
             </mat-card>
             <br>
         </div>
+
     </div>
 </div>

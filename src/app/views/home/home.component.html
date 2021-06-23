@@ -1,29 +1,32 @@
-<div class="colorized-wrapper wrapper-flex-justify">
-    <p class="logo">feeling pronto</p>
-    <form [formGroup]="profileForm" class=" form_login">
-        <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input formControlName="email" matInput placeholder="Placeholder">
-            <div [ngSwitch]="invalidationSwitch('email')">
-                <p *ngSwitchCase='switchInvalidOne'>
-                    Tem de escrever o seu email.
-                </p>
-                <p *ngSwitchCase='switchInvalidTwo'>
-                    Email invalido.
-                </p>
-            </div>
+<div class="colorized-wrapper ">
+    <div class="d-flex align-items-center flex-column mt-6 w-100" style="text-align: center;">
+        <p class="logo">feeling pronto</p>
+        <form [formGroup]="profileForm" class=" form_login">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput placeholder="Placeholder">
+                <div [ngSwitch]="invalidationSwitch('email')">
+                    <p *ngSwitchCase='switchInvalidOne'>
+                        Tem de escrever o seu email.
+                    </p>
+                    <p *ngSwitchCase='switchInvalidTwo'>
+                        Email invalido.
+                    </p>
+                </div>
 
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>password</mat-label>
-            <input formControlName="password" type="password" matInput placeholder="Placeholder">
-            <div [ngSwitch]="invalidationSwitch('password')">
-                <p *ngSwitchCase='switchInvalidOne'>
-                    Tem de escrever a sua password.
-                </p>
-            </div>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>password</mat-label>
+                <input formControlName="password" type="password" matInput placeholder="Placeholder">
+                <div [ngSwitch]="invalidationSwitch('password')">
+                    <p *ngSwitchCase='switchInvalidOne'>
+                        Tem de escrever a sua password.
+                    </p>
+                </div>
 
-        </mat-form-field>
-        <button mat-stroked-button type="submit" (click)="loginUser()">Login</button>
-    </form>
+            </mat-form-field>
+            <br>
+            <button mat-stroked-button type="submit" (click)="loginUser()">Login</button>
+        </form>
+    </div>
 </div>

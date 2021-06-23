@@ -1,0 +1,25 @@
+<div class="colorized-wrapper overflow-auto">
+    <div class="d-flex align-items-start flex-column mt-4 md-5 w-100  " style="margin-left:0px">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+            <mat-icon class="icon ml-cross" (click)="getback()">keyboard_backspace</mat-icon>
+        </mat-icon>
+        <h1 class="Text mt-5 ml-txt">Profile</h1>
+
+
+        <div class="d-flex bd-highlight mt-5">
+            <div class="p-2 w-100 ms-5 bd-highlight" style="float:left;">
+                <img class="profile-image avatar huge  " src="https://randomuser.me/api/portraits/men/7.jpg">
+            </div>
+            <div class="p-2 flex-shrink-1 bd-highlight mt-4" stye="float:right;">
+
+                <p>{{user.name}}<br>
+                    {{user.email}}
+                </p>
+
+                <p class="mt-0">
+
+                </p>
+            </div>
+
+        </div>
+    </div>

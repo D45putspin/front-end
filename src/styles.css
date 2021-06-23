@@ -1,11 +1,14 @@
 html, body { height: 100%; }
 body { margin: 0; color:white }
-.body-white{margin:0;color:black;}
+.body-white{margin:0;color:black;width:100vw}
 .colorized-wrapper{
+    position:-webkit-sticky;
     height: 100vh;
     width:100vw;
    background: linear-gradient(160.16deg, #222AF0 -64.37%, #7022F0 64.23%, #F022DB 138.12%);
    display: flex;
+   color:white;
+   
 }/* You can add global styles to this file, and also import other style files */
 .logo{font-family: "Kaushan Script";
 font-style: normal;
@@ -14,4 +17,21 @@ color: #FFFFFF;}
 .form{
     color:white
 }
-.Text{font-family: "Work Sans";color:#FFFFFF}
+.Text{color:#FFFFFF;
+    font-family: 'Work Sans', sans-serif  !important;
+
+
+font-size: 42.27px !important;
+
+
+
+/* identical to box height */
+letter-spacing: -0.845455px;}
+.FontOverSized{font-size:80px;margin-bottom: 10px;}
+.FontlogoStandardSize{font-size: 42.2727px;}
+.fontStandard{font-size:25px}
+.buttonFood{width:275px;height: 130px;}
+.icon{font-size:48.5px;}
+.mt-6{margin-top:85.57px}
+.ml-cross{margin-left:60.57px}
+.ml-txt{margin-left:50px  !important;}

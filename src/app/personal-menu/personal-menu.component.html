@@ -1,0 +1,19 @@
+<div class="colorized-wrapper ">
+
+
+
+    <div class="d-flex align-items-start flex-column mt-6 " style="height: 400px;width:100vw">
+        <button mat-icon-button aria-label="Example icon-button with a menu" routerLink="/main">
+            <mat-icon class="icon ml-cross">close icon</mat-icon>
+        </button>
+        <div class="ml-txt p-2 mt-4  ">
+            <p class="Text" routerLink="/profile">Profile</p>
+        </div>
+        <div class=" ml-txt p-2">
+            <p routerLink="/watch" class="Text">Orders</p>
+        </div>
+        <div class=" ml-txt mt-auto p-2">
+            <p class="Text" (click)="signOut()">SignOut</p>
+        </div>
+    </div>
+</div>

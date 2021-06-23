@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from "@angula
 import { gql, Apollo, QueryRef } from 'apollo-angular';
 import { Login } from '../../graphql/mutations/login';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -33,7 +34,7 @@ export class HomeComponent implements OnInit {
   get switchInvalidTwo() { return this.patternInvalidation != undefined }
 
 
-  constructor(private apollo: Apollo, private router: Router) { }
+  constructor(private apollo: Apollo, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -49,7 +50,14 @@ export class HomeComponent implements OnInit {
     }).subscribe(({ data }) => {
       const token = (data as any)
       localStorage.setItem("token", token.loginUser.token);
-      this.router.navigate(['/teste'])
+      this.router.navigate(['/main'])
+    }, error => {
+      console.log(error.message)
+      this._snackBar.open('Wrong Info', 'Try again', {
+        horizontalPosition: "center",
+        verticalPosition: "top",
+      });
+
     })
   }
 
