@@ -1,7 +1,7 @@
 import { gql, Apollo, QueryRef } from 'apollo-angular';
 export const getMenubyID = gql`
-mutation($id:String!){
- listMenuById(_id:$id){
+mutation($id:String!,$token:String){
+ listMenuById(_id:$id,token:$token){
     price,
   foodType,
   salePrice,
@@ -23,6 +23,7 @@ mutation($id:String!){
     price
     Limit
   }
+  imgB64
      
      
  }

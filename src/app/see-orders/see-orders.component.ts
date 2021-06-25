@@ -4,7 +4,7 @@ import { listOrderById } from '../graphql/mutations/GetOrdersById'
 import { listCartById } from '../graphql/mutations/getCartById'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Params } from '@angular/router';
-
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-see-orders',
   templateUrl: './see-orders.component.html',
@@ -12,7 +12,7 @@ import { ActivatedRoute, Router, CanActivate, ActivatedRouteSnapshot, RouterStat
 })
 export class SeeOrdersComponent implements OnInit {
 
-  constructor(private apollo: Apollo, private router: Router, private _snackBar: MatSnackBar) { }
+  constructor(private apollo: Apollo, private router: Router, private _snackBar: MatSnackBar, private sanitizer: DomSanitizer) { }
   menus: any[] = [];
 
   optionsN: any[] = [];
@@ -44,8 +44,7 @@ export class SeeOrdersComponent implements OnInit {
 
 
         for (let z = 0; z < menu[i].menus.optionsDesc.length; z++) {
-          console.log(menu[i])
-          console.log(menu[i].menus.optionsDesc)
+
           if (menu[i].menus.optionsDesc[z] != null) {
             if (menu[i].menus.optionsDesc[z].price != null)
 
@@ -60,7 +59,7 @@ export class SeeOrdersComponent implements OnInit {
           }
         }
         let priceOpt = priceDesc + priceN
-        console.log(menu[i].menus.price, priceOpt)
+
         let price = menu[i].menus.price + priceOpt;
         let thisobj = {
           idCart: menu[i].idCart,
@@ -68,12 +67,14 @@ export class SeeOrdersComponent implements OnInit {
           orderStatus: menu[i].orderStatus,
           createdAt: menu[i].createdAt,
           menus: menu[i].menus,
+          img: this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${menu[i].menus.imgB64}`),
           totalPrice: price
         }
 
         let sendingobj = { ...thisobj };
 
         this.menus.push(sendingobj);
+
         priceDesc = 0
         priceN = 0
 

@@ -3,8 +3,8 @@ import { gql, Apollo, QueryRef } from 'apollo-angular';
 export const addItemToCart = gql`
 mutation($menu:[menuObjInput],
          $idUserAssociated: String!
-        $paymentType:String!,
-     $numberMenus:Int
+         $paymentType:String!,
+         $numberMenus:Int
       )
       {
 addItemToCart(idUserAssociated:$idUserAssociated,

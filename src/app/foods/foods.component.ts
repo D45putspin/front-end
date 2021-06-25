@@ -72,6 +72,13 @@ export class FoodsComponent implements OnInit {
           horizontalPosition: "center",
           verticalPosition: "top",
         });
+      } else {
+        this.router.navigate(['']);
+        localStorage.removeItem("token")
+        this._snackBar.open('unknown error', 'Login again', {
+          horizontalPosition: "center",
+          verticalPosition: "top",
+        });
       }
     })
   }

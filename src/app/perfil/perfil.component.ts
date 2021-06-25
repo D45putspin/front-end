@@ -3,7 +3,7 @@ import { MatInputCounterModule } from '@angular-material-extensions/input-counte
 import { FormControl, FormGroup, Validators, FormArray, FormBuilder } from "@angular/forms";
 import { gql, Apollo, QueryRef } from 'apollo-angular';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { DomSanitizer } from '@angular/platform-browser';
 import { getUserById } from '../graphql/mutations/getUserById'
 import { MatListOption } from '@angular/material/list'
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -14,11 +14,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private apollo: Apollo, private _snackBar: MatSnackBar) { }
+  constructor(private route: ActivatedRoute, private router: Router, private apollo: Apollo, private _snackBar: MatSnackBar, private sanitizer: DomSanitizer) { }
   user: any;
   ngOnInit(): void {
     let token = localStorage.getItem("token")
-    console.log(token)
+
     this.apollo.mutate({ //cria mutate
       mutation: getUserById,//mutation é
       variables: {
@@ -26,9 +26,10 @@ export class PerfilComponent implements OnInit {
       }
     }).subscribe(({ data }) => {
       let datAny = data as any
-      console.log(datAny)
+
       this.user = datAny.listUserId
-      console.log(this.user)
+      this.user.imgB64 = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${this.user.imgB64}`);;
+
     })
   }
   getback() {

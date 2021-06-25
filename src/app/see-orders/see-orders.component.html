@@ -11,8 +11,7 @@
         <div class="w-75 mt-6 bordered" style="margin-left:15vw" *ngFor="let menu of menus">
 
             <mat-card class="card  " style="margin-bottom: 4px;">
-                <img style="width:100%"
-                    src="https://2rdnmg1qbg403gumla1v9i2h-wpengine.netdna-ssl.com/wp-content/uploads/sites/3/2016/10/foodJointPainRelief-142336977-770x533-1-650x428.jpg">
+                <img style="width:100%" [src]="menu.img">
                 <mat-card-header>
 
                     <mat-card-title>{{menu.menus.menuName}}</mat-card-title>

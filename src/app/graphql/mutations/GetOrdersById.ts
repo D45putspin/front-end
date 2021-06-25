@@ -28,6 +28,7 @@ numberMenus
       price
       typename
     }
+    imgB64
    }
 createdAt
   paymentType
