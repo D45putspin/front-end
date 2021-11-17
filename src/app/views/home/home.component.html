@@ -1,16 +1,16 @@
 <div class="colorized-wrapper ">
     <div class="d-flex align-items-center flex-column mt-6 w-100" style="text-align: center;">
-        <p class="logo">feeling pronto</p>
+        <p class="logo">Hathor Bullz Club</p>
         <form [formGroup]="profileForm" class=" form_login">
             <mat-form-field appearance="outline">
-                <mat-label>Email</mat-label>
-                <input formControlName="email" matInput placeholder="Placeholder">
-                <div [ngSwitch]="invalidationSwitch('email')">
+                <mat-label>Address</mat-label>
+                <input formControlName="walletAddress" matInput placeholder="insert your address">
+                <div [ngSwitch]="invalidationSwitch('address')">
                     <p *ngSwitchCase='switchInvalidOne'>
-                        Tem de escrever o seu email.
+                        write your address.
                     </p>
                     <p *ngSwitchCase='switchInvalidTwo'>
-                        Email invalido.
+                        invalid addresss.
                     </p>
                 </div>
 
@@ -20,7 +20,7 @@
                 <input formControlName="password" type="password" matInput placeholder="Placeholder">
                 <div [ngSwitch]="invalidationSwitch('password')">
                     <p *ngSwitchCase='switchInvalidOne'>
-                        Tem de escrever a sua password.
+                        you need to provide a password.
                     </p>
                 </div>
 

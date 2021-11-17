@@ -1,12 +1,10 @@
 <div class="colorized-wrapper ">
-
+    <button class="buttonDeposit fontStandard"  (click)="redirectH()" mat-stroked-button> back</button>
     <div class="wrapper-flex-justify">
 
-        <button mat-stroked-button (click)="handlePermission()">
-            <mat-icon>location_on</mat-icon> give access
-            Location
-        </button>
-        <p *ngIf="allowance=='denied' || allowance=='prompt'">{{textActivation}}</p>
+        <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+<p  >{{myAngularxQrCode}}</p>
+<mat-icon  ngxClipboard [cbContent]="myAngularxQrCode"  (click)="informCopy()" >file_copy</mat-icon>
 
     </div>
 </div>

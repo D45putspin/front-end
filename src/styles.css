@@ -1,11 +1,18 @@
-html, body { height: 100%; }
-body { margin: 0; color:white }
+html, body { height: 100%; color:white}
+body { margin: 0; background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
 .body-white{margin:0;color:black;width:100vw}
 .colorized-wrapper{
     position:-webkit-sticky;
     height: 100vh;
     width:100vw;
-   background: linear-gradient(160.16deg, #222AF0 -64.37%, #7022F0 64.23%, #F022DB 138.12%);
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
    display: flex;
    color:white;
    
@@ -27,11 +34,72 @@ font-size: 42.27px !important;
 
 /* identical to box height */
 letter-spacing: -0.845455px;}
-.FontOverSized{font-size:80px;margin-bottom: 10px;}
-.FontlogoStandardSize{font-size: 42.2727px;}
+.FontOverSized{font-size:80px;margin-bottom: 10px;font-family: 'Work Sans', sans-serif  !important;}
+.FontlogoStandardSize{font-size: 42.2727px;font-family: 'Work Sans', sans-serif  !important; color: #fff;
+     animation: flicker 1s infinite alternate;}
 .fontStandard{font-size:25px}
-.buttonFood{width:275px;height: 130px;}
+body{height: 100%;
+    overflow: hidden}
 .icon{font-size:48.5px;}
 .mt-6{margin-top:85.57px}
 .ml-cross{margin-left:60.57px}
 .ml-txt{margin-left:50px  !important;}
+.buttonFood {
+    width: 140px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #ACEB98;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    }
+  
+  .buttonFood:hover {
+    background-color: #A4C2A8;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  .buttonDeposit{ width: 120px;
+    height: 35px;
+    
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #111;
+    background-color: #ACEB98;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;}
+
+    .buttonDeposit:hover {
+        background-color: #A4C2A8;
+        box-shadow: 0px 5px 40px rgba(146, 255, 211, 0.4);
+        color: #fff;
+        
+      }
+
+    @keyframes flicker {
+        0%, 18%, 22%, 25%, 53%, 57%, 100% {
+          text-shadow:
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 49px #fff,
+           
+        }
+        
+      }
+
+       .navbar{color:white;font-family: 'Work Sans', sans-serif  !important}

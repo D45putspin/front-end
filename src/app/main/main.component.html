@@ -1,18 +1,18 @@
-<div class="colorized-wrapper ">
-    <button mat-icon-button aria-label="Example icon-button with a menu" routerLink="/menu-usr">
-        <mat-icon class="icon mt-5 ml-cross">menu</mat-icon>
-    </button>
+<nav class="navbar justify-content-between">
+    <span class="navbar-brand mb-0 ml-3 fontStandard " style="margin-left: 10px;">Hathor Bullz Club</span>
+    <span class="navbar-brand mb-0 ml-3 fontStandard " style="margin-left: 10px;">{{balance.getBalance.availableHtr}}<a class="identifier">HTR</a> {{balance.getBalance.availableHbc}} <a class="identifier">HBC</a></span>
+    <button class="buttonDeposit fontStandard"  (click)="redirectH()" mat-stroked-button> deposit</button>
+  </nav><div class="colorized-wrapper align-items-center">
+    
 
-    <div class="mt-6">
-        <p class="Text" style="margin-left: 9%;"> What do you feel like eating today?</p>
+    <div class="mt-5 ml-5 w-100 text-center">
+        <p class="FontlogoStandardSize"> Feeling bullish today?<br><br> join us, mint a bull!</p>
         <br>
         <br>
         <div>
-            <button class="buttonFood fontStandard" (click)="redirectH()" mat-stroked-button>healthy <img
-                    style=" width: 60px;height: 60px;" src='../../assets/media/img/Salad 1.png'></button>
-            <button class="buttonFood fontStandard " (click)="redirectU()" routerLink=" /local" mat-stroked-button>not
-                so
-                healthy <img style="width: 60px;height: 60px;" src='../../assets/media/img/Fries 1.png'></button>
+            <button class="buttonFood fontStandard"  (click)="mint()" mat-stroked-button> Mint It</button>
+           
         </div>
+        <div *ngIf="position.getPositionQueue.time > 0"> you're in queue , expected time: {{position.getPositionQueue.time}} Seconds </div>
     </div>
 </div>

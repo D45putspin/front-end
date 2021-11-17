@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { QRCodeModule } from 'angularx-qrcode';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -31,7 +31,7 @@ import { SeeOrdersComponent } from './see-orders/see-orders.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PersonalMenuComponent } from './personal-menu/personal-menu.component';
 import { PerfilComponent } from './perfil/perfil.component';
-
+import { ClipboardModule } from 'ngx-clipboard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +48,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 
   ],
   imports: [
+    ClipboardModule,
+    QRCodeModule,
     MatSnackBarModule,
     FlexLayoutModule,
     MatSelectModule,
