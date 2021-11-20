@@ -47,7 +47,7 @@ export class MainComponent implements OnInit {
             console.log(error);
 
             this.router.navigate(['']);
-            this._snackBar.open('Authentication error', 'Login again', {
+            this._snackBar.open('Authentication ersror', 'Login again', {
               horizontalPosition: 'center',
               verticalPosition: 'top',
             });
@@ -70,7 +70,7 @@ export class MainComponent implements OnInit {
             console.log(error);
 
             this.router.navigate(['']);
-            this._snackBar.open('Authentication error', 'Login again', {
+            this._snackBar.open('Authenticatfion error', 'Login again', {
               horizontalPosition: 'center',
               verticalPosition: 'top',
             });
@@ -103,7 +103,7 @@ mint(){
       console.log(error);
 
       this.router.navigate(['']);
-      this._snackBar.open('Authentication error', 'Login again', {
+      this._snackBar.open('Authenticatison errorr', 'Login again', {
         horizontalPosition: 'center',
         verticalPosition: 'top',
       });
