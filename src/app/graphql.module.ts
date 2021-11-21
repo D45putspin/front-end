@@ -4,8 +4,10 @@ import { ApolloClientOptions, InMemoryCache,ApolloLink  } from '@apollo/client/c
 import { HttpLink } from 'apollo-angular/http';
 
 import { setContext } from '@apollo/client/link/context';
-const uri = 'http://localhost:4200/api/graphql'; // <-- add the URL of the GraphQL server here
-export function createApollo(httpLink: HttpLink) {
+const uri = 'https://apiv1.hathorbullzclub.io/graphql'; // <-- add the URL of the GraphQL server here
+export function createApollo(httpLink: HttpLink,fetchOptions: {
+  mode: 'no-cors',
+},) {
   const basic = setContext((operation, context) => ({
     headers: {
       Accept: 'charset=utf-8'
