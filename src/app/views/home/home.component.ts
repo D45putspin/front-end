@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  url = 'http://localhost:4200/api/auth/login'
+  url = 'https://apiv1.hathorbullzclub.io/auth/login'
   control: any;
 
   profileForm = new FormGroup({
