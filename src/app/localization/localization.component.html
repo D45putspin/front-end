@@ -1,9 +1,9 @@
 <div class="colorized-wrapper ">
-    <button class="buttonDeposit fontStandard"  (click)="redirectH()" mat-stroked-button> back</button>
-    <div class="wrapper-flex-justify">
+    <button class="buttonDeposit fontStandard"  style="position:relative;" (click)="redirectH()" mat-stroked-button> back</button>
+    <div class="wrapper-flex-justify mt-6" style="position: absolute;">
 
         <qrcode [qrdata]="myAngularxQrCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-<p  >{{myAngularxQrCode}}</p>
+<p >{{myAngularxQrCode}}</p>
 <mat-icon  ngxClipboard [cbContent]="myAngularxQrCode"  (click)="informCopy()" >file_copy</mat-icon>
 
     </div>

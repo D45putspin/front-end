@@ -20,7 +20,7 @@ const routes: Routes = [
     component: MainComponent
   },
   {
-    path: 'local',
+    path: 'deposit',
     component: LocalizationComponent
   },
   {

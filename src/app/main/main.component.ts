@@ -25,8 +25,7 @@ export class MainComponent implements OnInit {
   ) {}
   balance: any;
   position: any;
-  
-
+canIMint:any
   ngOnInit(): void {
     var tokenn = localStorage.getItem('token');
     console.log(tokenn);
@@ -62,15 +61,15 @@ export class MainComponent implements OnInit {
         })
         .subscribe(
           ({ data }) => {
-            this.position = data ;
-            
+            this.position = data;
+
             console.log(this.position);
           },
           (error) => {
             console.log(error);
 
-            this.router.navigate(['']);
-            this._snackBar.open('Authenticatfion error', 'Login again', {
+            
+            this._snackBar.open('Unable to get position in queue', 'try again later', {
               horizontalPosition: 'center',
               verticalPosition: 'top',
             });
@@ -79,36 +78,43 @@ export class MainComponent implements OnInit {
     } else {
       this.router.navigate(['']);
     }
+    this.canMint();
+  }
+  canMint(){
+    const htr=this.balance.getBalance.availableHtr
+    const hbc=this.balance.getBalance.availableHbc
+    if (htr<50 && hbc <1){this.canIMint=false} else {this.canIMint=true}
+
   }
   redirectH() {
-    this.router.navigate(['/local']);
+    this.router.navigate(['/deposit']);
   }
-checkData(){
-  this.position.getPositionQueue.time-=1
-}
-mint(){
-  var tokenn = localStorage.getItem('token');
-  this.apollo
-  .mutate({
-    mutation: MintIt,
-    variables: {
-      token: tokenn,
-    },
-  })
-  .subscribe(
-    ({ data }) => {
-      
-    },
-    (error) => {
-      console.log(error);
+  checkData() {
+    this.position.getPositionQueue.time -= 1;
+  }
+  mint() {
+    var tokenn = localStorage.getItem('token');
+    this.apollo
+      .mutate({
+        mutation: MintIt,
+        variables: {
+          token: tokenn,
+        },
+      })
+      .subscribe(
+        ({ data }) => {},
+        (error) => {
+          console.log(error);
 
-      this.router.navigate(['']);
-      this._snackBar.open('Authenticatison errorr', 'Login again', {
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-      });
-    }
-  );
-}
-  x = setInterval(() => { this.checkData(); }, 1000);
+          this.router.navigate(['']);
+          this._snackBar.open('Authenticatison error', 'Login again', {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+        }
+      );
+  }
+  x = setInterval(() => {
+    this.checkData();
+  }, 1000);
 }

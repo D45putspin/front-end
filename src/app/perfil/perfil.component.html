@@ -7,19 +7,10 @@
 
 
         <div class="d-flex bd-highlight mt-5">
-            <div class="p-2 w-100 ms-5 bd-highlight" style="float:left;">
-                <img class="profile-image avatar huge  " [src]="user.imgB64">
-            </div>
-            <div class="p-2 flex-shrink-1 bd-highlight mt-4" stye="float:right;">
-
-                <p>{{user.name}}<br>
-                    {{user.address}}
-                </p>
-
-                <p class="mt-0">
-
-                </p>
-            </div>
+            <ol  *ngFor="let link of mintedByME">
+                 {{ link.nftData.name }} 
+                 {{ link.nftData.data }} 
+             </ol>
 
         </div>
     </div>

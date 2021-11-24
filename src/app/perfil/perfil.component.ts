@@ -7,6 +7,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { getUserById } from '../graphql/mutations/getUserById'
 import { MatListOption } from '@angular/material/list'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { mintedByMe } from '../graphql/mutations/mintedByUser';
+import { JsonpClientBackend } from '@angular/common/http';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -16,19 +18,21 @@ export class PerfilComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router, private apollo: Apollo, private _snackBar: MatSnackBar, private sanitizer: DomSanitizer) { }
   user: any;
+  mintedByME: any;
   ngOnInit(): void {
     let token = localStorage.getItem("token")
 
     this.apollo.mutate({ //cria mutate
-      mutation: getUserById,//mutation é
-      variables: {
-        Token: token
-      }
-    }).subscribe(({ data }) => {
+      mutation: mintedByMe,//mutation é
+      
+    }).subscribe(async ({ data }) => {
       let datAny = data as any
-
-      this.user = datAny.listUserId
-      this.user.imgB64 = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${this.user.imgB64}`);;
+      //fazer isto direito um loop para todos
+      const minted=datAny.mintedByMe[0].nftData.data
+      const newMinted=minted.replace("ipfs://ipfs/","https://ipfs.io/ipfs/")
+      const x=  await fetch(newMinted)
+    console.log(x)
+    
 
     })
   }

@@ -1,7 +1,7 @@
-<nav class="navbar justify-content-between">
-    <span class="navbar-brand mb-0 ml-3 fontStandard " style="margin-left: 10px;">Hathor Bullz Club</span>
+<nav class="navbar justify-content-center">
+    <span class="navbar-brand mb-0 ml-3 fontStandard textToGlow " style="margin-left: 10px;">My Collection</span>
     <span class="navbar-brand mb-0 ml-3 fontStandard " style="margin-left: 10px;">{{balance.getBalance.availableHtr}}<a class="identifier">HTR</a> {{balance.getBalance.availableHbc}} <a class="identifier">HBC</a></span>
-    <button class="buttonDeposit fontStandard"  (click)="redirectH()" mat-stroked-button> deposit</button>
+    
   </nav><div class="colorized-wrapper align-items-center">
     
 
@@ -10,8 +10,8 @@
         <br>
         <br>
         <div>
-            <button class="buttonFood fontStandard"  (click)="mint()" mat-stroked-button> Mint It</button>
-           
+            <button *ngIf="canIMint" class="buttonFood fontStandard"  (click)="mint()" mat-stroked-button> Mint It</button>
+            <button *ngIf="!canIMint" class="buttonFood fontStandard "  (click)="redirectH()" mat-stroked-button> deposit</button>
         </div>
         <div *ngIf="position.getPositionQueue.time > 0"> you're in queue , expected time: {{position.getPositionQueue.time}} Seconds </div>
     </div>

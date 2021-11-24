@@ -8,11 +8,11 @@ body { margin: 0; background: #232526;  /* fallback for old browsers */
 .colorized-wrapper{
     position:-webkit-sticky;
     height: 100vh;
-    width:100vw;
+    width:100% !important;
     background: #232526;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    overflow: hidden;
    display: flex;
    color:white;
    
@@ -35,9 +35,9 @@ font-size: 42.27px !important;
 /* identical to box height */
 letter-spacing: -0.845455px;}
 .FontOverSized{font-size:80px;margin-bottom: 10px;font-family: 'Work Sans', sans-serif  !important;}
-.FontlogoStandardSize{font-size: 42.2727px;font-family: 'Work Sans', sans-serif  !important; color: #fff;
+.FontlogoStandardSize{font-size: 38px;font-family: 'Work Sans', sans-serif  !important; color: #fff;
      animation: flicker 1s infinite alternate;}
-.fontStandard{font-size:25px}
+
 body{height: 100%;
     overflow: hidden}
 .icon{font-size:48.5px;}
@@ -68,10 +68,12 @@ body{height: 100%;
     color: #fff;
     transform: translateY(-7px);
   }
-  .buttonDeposit{ width: 120px;
+
+  .buttonDeposit{ width:7%;
     height: 35px;
     
-    font-size: 10px;
+    margin-right:10px !important;
+    font-size: 1vh !important;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
