@@ -1,16 +1,35 @@
 <div class="colorized-wrapper overflow-auto">
-    <div class="d-flex align-items-start flex-column mt-4 md-5 w-100  " style="margin-left:0px">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">
-            <mat-icon class="icon ml-cross" (click)="getback()">keyboard_backspace</mat-icon>
-        </mat-icon>
-        <h1 class="Text mt-5 ml-txt">Profile</h1>
+  <div
+    class="d-flex align-items-start flex-column mt-4 md-5 w-100"
+    style="margin-left: 0px"
+  >
+    <mat-icon aria-hidden="false" aria-label="Example home icon">
+      <mat-icon class="icon ml-cross" (click)="getback()"
+        >keyboard_backspace</mat-icon
+      >
+    </mat-icon>
+    <h1 class="Text mt-5 ml-txt">Profile</h1>
 
-
-        <div class="d-flex bd-highlight mt-5">
-            <ol  *ngFor="let link of mintedByME">
-                 {{ link.nftData.name }} 
-                 {{ link.nftData.data }} 
-             </ol>
-
+    <div
+      class="d-flex flex-wrap bd-highlight mt-5"
+      style="min-width: 100vw !important;  justify-content: center;"
+    >
+      <div *ngFor="let link of mintedByME" style="max-width: 100% !important; margin-left: 5px;">
+      
+          <img
+            [src]="link.file"
+            alt="Girl in a jacket"
+            width="300"
+            height="300"
+          />
+          <br>
+            {{
+              link.name
+            }}
+          
+       
+        <br>
         </div>
     </div>
+  </div>
+</div>

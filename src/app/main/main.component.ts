@@ -78,11 +78,13 @@ canIMint:any
     } else {
       this.router.navigate(['']);
     }
-    this.canMint();
+    
   }
   canMint(){
+   
     const htr=this.balance.getBalance.availableHtr
     const hbc=this.balance.getBalance.availableHbc
+    
     if (htr<50 && hbc <1){this.canIMint=false} else {this.canIMint=true}
 
   }
@@ -90,6 +92,7 @@ canIMint:any
     this.router.navigate(['/deposit']);
   }
   checkData() {
+    this.canMint();
     this.position.getPositionQueue.time -= 1;
   }
   mint() {
@@ -106,13 +109,16 @@ canIMint:any
         (error) => {
           console.log(error);
 
-          this.router.navigate(['']);
-          this._snackBar.open('Authenticatison error', 'Login again', {
+          this._snackBar.open(error, 'try again', {
             horizontalPosition: 'center',
             verticalPosition: 'top',
           });
         }
       );
+      window.location.reload();
+  }
+  redirectProfile(){
+    this.router.navigate(['profile']);
   }
   x = setInterval(() => {
     this.checkData();
