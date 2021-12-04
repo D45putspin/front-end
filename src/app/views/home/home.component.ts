@@ -5,6 +5,7 @@ import { Login } from '../../graphql/mutations/login';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
+import { ReturnStatement } from '@angular/compiler';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,11 +14,13 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
   //prod url = 'https://apiv1.hathorbullzclub.io/auth/login'
   url = 'http://localhost:3001/auth/login'
+  urlRegister='http://localhost:3001/auth/signup'
   control: any;
 
   profileForm = new FormGroup({
     walletAddress: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required])
+    password: new FormControl('', [Validators.required]),
+    name: new FormControl('', [Validators.required])
   });
 
   get password() { return this.profileForm.get('password'); }
@@ -38,13 +41,56 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private apollo: Apollo, private router: Router, private _snackBar: MatSnackBar,private httpClient: HttpClient) { }
- 
+ status:any;
   ngOnInit(): void {
+    this.status="login";
   }
+changeStatus(){
+  if(this.status==="login")this.status="register"
+  else this.status="login"
+}
+registUser(){
+  this.httpClient.post<any>(this.urlRegister, {name:this.profileForm.value.name,password:this.profileForm.value.password,walletAddress: this.profileForm.value.walletAddress}).subscribe(data =>{
+   this.loginUser(this.profileForm.value.password,this.profileForm.value.walletAddress)
+  
+  }, error => {
+    console.log(error.error.message)
+  
+  let errorToUse
+  
+   
+  errorToUse=error.error.message
+     
+      console.log(errorToUse)
+      const errorToDisplay=this.typeOfError(errorToUse)
+      this._snackBar.open(errorToDisplay, 'Try again', {
+        horizontalPosition: "center",
+        verticalPosition: "top",
+      } )
+  ;
 
-  loginUser() {
+  
+  
+  })}
+typeOfError(error){
+  console.log(error)
+  switch(error){
     
-     this.httpClient.post<any>(this.url, {password:this.profileForm.value.password,walletAddress: this.profileForm.value.walletAddress}).subscribe(data =>{
+    case "AUTH.USER_ALREADY_EXISTS":
+      return "theres already a user with that address"
+      break;
+      default:
+       return "Unknown error contact admins"
+    
+  }
+ 
+}
+  loginUser(password?:string, walletAddress?:string) {
+    if(!password && !walletAddress){
+      password=this.profileForm.value.password;
+      walletAddress= this.profileForm.value.walletAddress
+    }
+     this.httpClient.post<any>(this.url, {password,walletAddress}).subscribe(data =>{
       const token = (data as any)
       console.log(token)
       localStorage.setItem("token", token.access_token);

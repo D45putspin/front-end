@@ -1,8 +1,16 @@
 <div class="colorized-wrapper ">
-    <div class="d-flex align-items-center flex-column mt-6 w-100" style="text-align: center;">
+    <div class="d-flex  align-items-center flex-column mt-6 w-100" style="text-align: center">
         <p class="logo">Hathor Bullz Club</p>
-        <form [formGroup]="profileForm" class=" form_login">
-            <mat-form-field appearance="outline">
+        <form [formGroup]="profileForm" class="form_login" >
+            <mat-form-field *ngIf="status==='register'" appearance="outline" style="margin-left:10px !important">
+                <mat-label>name</mat-label>
+                <input formControlName="name" type="name" matInput placeholder="insert a nickname">
+                <div [ngSwitch]="invalidationSwitch('password')">
+                   
+                </div>
+
+            </mat-form-field>
+            <mat-form-field appearance="outline" style="margin-left:10px !important">
                 <mat-label>Address</mat-label>
                 <input formControlName="walletAddress" matInput placeholder="insert your address">
                 <div [ngSwitch]="invalidationSwitch('address')">
@@ -15,9 +23,9 @@
                 </div>
 
             </mat-form-field>
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" style="margin-left:10px !important">
                 <mat-label>password</mat-label>
-                <input formControlName="password" type="password" matInput placeholder="Placeholder">
+                <input formControlName="password" type="password" matInput placeholder="insert your password">
                 <div [ngSwitch]="invalidationSwitch('password')">
                     <p *ngSwitchCase='switchInvalidOne'>
                         you need to provide a password.
@@ -25,8 +33,12 @@
                 </div>
 
             </mat-form-field>
+            
             <br>
-            <button mat-stroked-button type="submit" (click)="loginUser()">Login</button>
+            <button mat-stroked-button type="submit" *ngIf="status==='login'" (click)="loginUser()">Login</button>
+            <button mat-stroked-button type="submit" *ngIf="status==='register'" (click)="registUser()">Register</button>
+            <p  *ngIf="status==='login'" class="info mt-2" >dont have an account? <span class="register" (click)="changeStatus()">register</span></p>
+            <p  *ngIf="status==='register'" class="info mt-2" >already have an account? <span class="register" (click)="changeStatus()">Login</span></p>
         </form>
     </div>
 </div>

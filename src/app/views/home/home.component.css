@@ -7,3 +7,5 @@ letter-spacing: -0.845455px;
 /*perguntar se é assim*/
 .form_login{margin-top: 100px;}
 
+.info{color:rgba(255,255,255,0.5)}
+.register:hover{color:rgba(255,255,255,1)}
