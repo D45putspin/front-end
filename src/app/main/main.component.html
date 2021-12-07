@@ -17,5 +17,6 @@
             <p *ngIf="!tenSecIntreval && canIMint" class ="FontlogoStandardSize mt-4 " style="font-size:2vh !important">wait a moment till you can mint</p>
         </div>
         <div *ngIf="position.getPositionQueue.time > 0"> you're in queue  </div>
+        <div class="mt-5 FontlogoStandardSize "style="font-size:2vh !important"> {{howwManyMinted}} out of 5000 minted </div>
     </div>
 </div>

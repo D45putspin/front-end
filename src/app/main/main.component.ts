@@ -11,7 +11,7 @@ import { CheckBalance } from '../graphql/mutations/checkBalance';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { getPositionQueue } from '../graphql/mutations/queue';
 import { MintIt } from '../graphql/mutations/mint';
-
+import { howManyMinted } from '../graphql/mutations/howManyMinted';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -27,10 +27,13 @@ export class MainComponent implements OnInit {
   balance: any;
   position: any;
   canIMint:any
+  howwManyMinted:any;
   ngOnInit(): void {
+   
     var tokenn = localStorage.getItem('token');
     console.log(tokenn);
     if (tokenn) {
+      this.howManyMinted();
       this.apollo
         .mutate({
           mutation: CheckBalance,
@@ -92,6 +95,30 @@ export class MainComponent implements OnInit {
   redirectH() {
     this.router.navigate(['/deposit']);
   }
+  howManyMinted(){
+    var tokenn = localStorage.getItem('token');
+    this.apollo
+      .mutate({
+        mutation: howManyMinted,
+        variables: {
+          token: tokenn,
+        },
+      })
+      .subscribe(
+        ({ data  }) => { let x=data as any;
+          this.howwManyMinted= x.howManyMinted},
+        (error) => {
+          console.log(error);
+
+          this._snackBar.open(error, 'Server error, wait while its fixed', {
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
+        }
+      );
+    
+  }
+  
   checkData() {
     this.canMint();
     this.position.getPositionQueue.time -= 1;

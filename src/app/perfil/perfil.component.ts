@@ -30,6 +30,7 @@ export class PerfilComponent implements OnInit {
       let datAny = data as any
       //fazer isto direito um loop para todos
       let tam=datAny.mintedByMe.length
+      console.log(datAny)
     for(let i=0;i<tam;i++ )
     {
       const minted=datAny.mintedByMe[i].nftData.data
