@@ -79,9 +79,13 @@ typeOfError(error){
     case "AUTH.USER_ALREADY_EXISTS":
       return "theres already a user with that address"
       break;
+      case "Invalid_Address":
+        return "theres an error with the Address format"
+        break;
       default:
        return "Unknown error contact admins"
-    
+   
+
   }
  
 }

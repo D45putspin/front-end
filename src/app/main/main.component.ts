@@ -23,9 +23,10 @@ export class MainComponent implements OnInit {
     private apollo: Apollo,
     private _snackBar: MatSnackBar
   ) {}
+  tenSecIntreval:boolean = false;
   balance: any;
   position: any;
-canIMint:any
+  canIMint:any
   ngOnInit(): void {
     var tokenn = localStorage.getItem('token');
     console.log(tokenn);
@@ -123,4 +124,17 @@ canIMint:any
   x = setInterval(() => {
     this.checkData();
   }, 1000);
+  
+ y = setTimeout(() => {
+  this.setTenSecIntervalTru();
+}, 10000);
+ 
+ setTenSecIntervalTru(){
+
+   this.tenSecIntreval=true
+ }
+ deleteToken(){
+   this.router.navigate(['']);
+   localStorage.removeItem("token")
+ } 
 }

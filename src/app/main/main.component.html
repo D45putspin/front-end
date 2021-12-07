@@ -1,4 +1,5 @@
 <nav class="navbar justify-content-center">
+    <mat-icon (click)="deleteToken()">close</mat-icon>
     <span class="navbar-brand mb-0 ml-3 fontStandard textToGlow " style="margin-left: 10px;" (click)="redirectProfile()">My Collection</span>
     <span class="navbar-brand mb-0 ml-3 fontStandard " style="margin-left: 10px;"> {{balance.getBalance.availableHtr}} <a class="identifier">HTR</a>  {{balance.getBalance.availableHbc}} <a class="identifier">HBC</a></span>
     
@@ -6,13 +7,15 @@
     
 
     <div class="mt-5 ml-5 w-100 text-center">
-        <p class="FontlogoStandardSize"> Feeling bullish today?<br><br> join us, mint a bull!</p>
+        <p class="FontlogoStandardSize" > Feeling bullish today?<br><br> join us, mint a bull!</p>
         <br>
         <br>
         <div>
-            <button *ngIf="canIMint" class="buttonFood fontStandard"  (click)="mint()" mat-stroked-button> Mint It</button>
+            <button *ngIf="canIMint "  class="buttonFood fontStandard btnMint" [disabled]="!tenSecIntreval"  (click)="mint()" mat-stroked-button> Mint It</button>
+       
             <button *ngIf="!canIMint" class="buttonFood fontStandard "  (click)="redirectH()" mat-stroked-button> deposit</button>
+            <p *ngIf="!tenSecIntreval && canIMint" class ="FontlogoStandardSize mt-4 " style="font-size:2vh !important">wait a moment till you can mint</p>
         </div>
-        <div *ngIf="position.getPositionQueue.time > 0"> you're in queue , expected time: {{position.getPositionQueue.time}} Seconds </div>
+        <div *ngIf="position.getPositionQueue.time > 0"> you're in queue  </div>
     </div>
 </div>
