@@ -89,7 +89,7 @@ export class MainComponent implements OnInit {
     const htr=this.balance.getBalance.availableHtr
     const hbc=this.balance.getBalance.availableHbc
     
-    if (htr<50 && hbc <1){this.canIMint=false} else {this.canIMint=true}
+    if ( hbc <1){this.canIMint=false} else {this.canIMint=true}
 
   }
   redirectH() {
