@@ -1,64 +1,60 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
-import { MainComponent } from './main/main.component'
-import { FoodsComponent } from './foods/foods.component'
-import { LocalizationComponent } from './localization/localization.component'
-import { MenuDetailsComponent } from './menu-details/menu-details.component'
-import { SucessOrderComponent } from './sucess-order/sucess-order.component'
-import { SeeOrdersComponent } from './see-orders/see-orders.component'
-import { NotFoundComponent } from './not-found/not-found.component'
-import { PersonalMenuComponent } from './personal-menu/personal-menu.component'
-import { PerfilComponent } from './perfil/perfil.component'
+import { MainComponent } from './main/main.component';
+import { FoodsComponent } from './foods/foods.component';
+import { LocalizationComponent } from './localization/localization.component';
+import { MenuDetailsComponent } from './menu-details/menu-details.component';
+import { SucessOrderComponent } from './sucess-order/sucess-order.component';
+import { SeeOrdersComponent } from './see-orders/see-orders.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { PersonalMenuComponent } from './personal-menu/personal-menu.component';
+import { PerfilComponent } from './perfil/perfil.component';
+
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'main',
-    component: MainComponent
+    component: MainComponent,
   },
   {
     path: 'deposit',
-    component: LocalizationComponent
+    component: LocalizationComponent,
   },
   {
     path: 'food',
-    component: FoodsComponent
+    component: FoodsComponent,
   },
   {
     path: 'detail',
-    component: MenuDetailsComponent
+    component: MenuDetailsComponent,
   },
   {
     path: 'sucess',
-    component: SucessOrderComponent
+    component: SucessOrderComponent,
   },
   {
     path: 'watch',
-    component: SeeOrdersComponent
+    component: SeeOrdersComponent,
   },
   { path: 'menu-usr', component: PersonalMenuComponent },
 
   {
     path: 'profile',
-    component: PerfilComponent
+    component: PerfilComponent,
   },
-
 
   {
     path: '**',
-    component: NotFoundComponent
-  }
-
+    component: NotFoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-
-}
-
+export class AppRoutingModule {}

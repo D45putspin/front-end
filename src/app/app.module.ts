@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +31,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { PersonalMenuComponent } from './personal-menu/personal-menu.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,9 +45,9 @@ import { ClipboardModule } from 'ngx-clipboard';
     NotFoundComponent,
     PersonalMenuComponent,
     PerfilComponent,
-
   ],
   imports: [
+    MatDialogModule,
     ClipboardModule,
     QRCodeModule,
     MatSnackBarModule,
@@ -67,12 +67,9 @@ import { ClipboardModule } from 'ngx-clipboard';
     MatMenuModule,
     MatCardModule,
     MatListModule,
-    MatInputCounterModule
-
-
-
+    MatInputCounterModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

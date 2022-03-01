@@ -1,22 +1,32 @@
-<nav class="navbar justify-content-center">
-    <mat-icon (click)="deleteToken()">close</mat-icon>
-    <span class="navbar-brand mb-0 ml-3 fontStandard textToGlow " style="margin-left: 10px;" (click)="redirectProfile()">My Collection</span>
-    <span class="navbar-brand mb-0 ml-3 fontStandard " style="margin-left: 10px;">  {{balance.getBalance.availableHbc}} <a class="identifier">HBC</a></span>
-    
-  </nav><div class="colorized-wrapper align-items-center">
-    
-
-    <div class="mt-5 ml-5 w-100 text-center">
-        <p class="FontlogoStandardSize" > Feeling bullish today?<br><br> join us, mint a bull!</p>
-        <br>
-        <br>
-        <div>
-            <button *ngIf="canIMint "  class="buttonFood fontStandard btnMint" [disabled]="!tenSecIntreval"  (click)="mint()" mat-stroked-button> Mint It</button>
-       
-            <button *ngIf="!canIMint" class="buttonFood fontStandard "  (click)="redirectH()" mat-stroked-button> deposit</button>
-            <p *ngIf="!tenSecIntreval && canIMint" class ="FontlogoStandardSize mt-4 " style="font-size:2vh !important">wait a moment till you can mint</p>
-        </div>
-        <div *ngIf="position.getPositionQueue.time > 0"> you're in queue  </div>
-        <div class="mt-5 FontlogoStandardSize "style="font-size:2vh !important"> {{howwManyMinted}} out of 5000 minted </div>
+<nav class="navbar justify-content-center"></nav>
+<div class="colorized-wrapper align-items-center">
+  <div class="mt-5 ml-5 w-100 text-center">
+    <p>
+      <span #textElement class="text FontlogoStandardSize"></span>
+      <span #blinkElement class="text blink FontlogoStandardSize"></span>
+    </p>
+    <div style="display: block">
+      <canvas id="myChart" width="400" height="400"></canvas>
     </div>
+    <div *ngIf="introducted" class="mt-5 ml-5 w-100 text-center">
+      <button
+        class="buttonFood fontStandard"
+        (click)="registerNft()"
+        mat-stroked-button
+      >
+        AssociateNft
+      </button>
+      <p *ngIf="!!nftData">your nft: {{ nftData }}</p>
+      <p>here it adds a fake nft to your acc(max 1 in this phase)</p>
+      <button
+        (click)="stakeNft()"
+        class="buttonFood fontStandard"
+        mat-stroked-button
+      >
+        Stake
+      </button>
+      <p>here it starts staking that nft</p>
+    </div>
+  </div>
 </div>
+s

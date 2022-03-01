@@ -1,11 +1,21 @@
-.logo{font-size: 42.2727px;
-line-height: 61px;
-letter-spacing: -0.845455px;
-
+.logo {
+  font-size: 42.2727px;
+  line-height: 61px;
+  letter-spacing: -0.845455px;
 }
-.wrapper-flex-justify{justify-content:center; align-items:center; flex-direction:column;}
+.wrapper-flex-justify {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 /*perguntar se é assim*/
-.form_login{margin-top: 100px;}
+.form_login {
+  margin-top: 100px;
+}
 
-.info{color:rgba(255,255,255,0.5)}
-.register:hover{color:rgba(255,255,255,1)}
+.info {
+  color: rgba(255, 255, 255, 0.5);
+}
+.register:hover {
+  color: rgba(255, 255, 255, 1);
+}
